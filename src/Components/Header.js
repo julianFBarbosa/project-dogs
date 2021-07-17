@@ -1,7 +1,7 @@
 import { ReactComponent as Dog } from "../Assets/dogs.svg";
 import { Link } from "react-router-dom";
 import React from "react";
-import { ReactComponent as User } from "../Assets/usuario.svg";
+import User from "../Assets/usuario.svg";
 import styled from "styled-components";
 
 const HeaderWrapper = styled.header`
@@ -33,13 +33,14 @@ const HeaderLogin = styled(Link)`
   color: #333;
   display: flex;
   align-items: center;
-`;
 
-const UserIcon = styled(User)`
-  margin-left: 0.5rem;
-  top: -1px;
-  position: relative;
-  fill: #333;
+  &:after {
+    content: '';
+    height: 17px;
+    width: 14px;
+    background: url(${User}) no-repeat center center;
+    margin-left: .5rem;
+  }
 `;
 
 const Header = () => {
@@ -49,9 +50,8 @@ const Header = () => {
         <HeaderLogo to='/' aria-label='Dogs'>
           <Dog />
         </HeaderLogo>
-        <HeaderLogin to='/login' aria-label='Fazer login'>
-          Login / Criar
-          <UserIcon />
+        <HeaderLogin to='/login' aria-label='Faça login ou cadastre-se'>
+          Login / Cadastrar
         </HeaderLogin>
       </Navbar>
     </HeaderWrapper>

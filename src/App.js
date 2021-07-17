@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Home from "./Components/Home.js";
 import Login from "./Components/Login/Login";
+import NotFound from "./Components/NotFound";
 import React from "react";
 
 const GlobalStyle = createGlobalStyle`
@@ -16,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   html {
@@ -61,7 +64,8 @@ const App = () => {
         <Header />
         <Routes>
           <Route path='/' exact element={<Home />} />
-          <Route path='/login' exact element={<Login />} />
+          <Route path='login/*' element={<Login />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
         <GlobalStyle />

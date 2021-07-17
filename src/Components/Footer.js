@@ -8,7 +8,7 @@ const FooterWrapper = styled.footer`
 const Footer = () => {
   return (
     <FooterWrapper>
-      <p>oi</p>
+      <p>Footer</p>
     </FooterWrapper>
   );
 };

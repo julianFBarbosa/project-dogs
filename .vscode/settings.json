@@ -5,9 +5,9 @@
     ".gitignore": false,
     "package.json": false,
     "package-lock.json": true,
-    ".yarn": true,
+    ".yarn": false,
     ".pnp.js": true,
-    "yarn.lock": true,
+    "yarn.lock": false,
     "public": true
   },
   "git.ignoreLimitWarning": true
