@@ -1,8 +1,9 @@
-import { ReactComponent as Dog } from "../Assets/dogs.svg";
-import { Link } from "react-router-dom";
-import React from "react";
-import User from "../Assets/usuario.svg";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { ReactComponent as Dog } from "../Assets/dogs.svg";
+import { UserContext } from "../UserContext";
+import User from "../Assets/usuario.svg";
 
 const HeaderWrapper = styled.header`
   position: fixed;
@@ -21,7 +22,7 @@ const Navbar = styled.nav`
   align-items: center;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   height: 4rem;
 `;
 
@@ -35,24 +36,32 @@ const HeaderLogin = styled(Link)`
   align-items: center;
 
   &:after {
-    content: '';
+    content: "";
     height: 17px;
     width: 14px;
     background: url(${User}) no-repeat center center;
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 `;
 
 const Header = () => {
+  const { data } = useContext(UserContext);
+
   return (
     <HeaderWrapper>
       <Navbar>
         <HeaderLogo to='/' aria-label='Dogs'>
           <Dog />
         </HeaderLogo>
-        <HeaderLogin to='/login' aria-label='Faça login ou cadastre-se'>
-          Login / Cadastrar
-        </HeaderLogin>
+        {data ? (
+          <HeaderLogin to='/conta' aria-label={`Seja bem vindo, ${data.username}`}>
+            {data.username}
+          </HeaderLogin>
+        ) : (
+          <HeaderLogin to='/login' aria-label='Faça login ou cadastre-se'>
+            Login / Cadastrar
+          </HeaderLogin>
+        )}
       </Navbar>
     </HeaderWrapper>
   );

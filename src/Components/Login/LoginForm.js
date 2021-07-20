@@ -1,57 +1,83 @@
-import React, { useEffect, useState } from "react";
-import { TOKEN_POST, USER_GET } from "../../api";
-
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../UserContext";
+import {
+  GlobalAnination,
+  GlobalSubtitle,
+  GlobalTitle,
+} from "../../GlobalStyle";
+import useForm from "../Hooks/useForm";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
-import { Link } from "react-router-dom";
-import useForm from "../Hooks/useForm";
+import Error from "../../Helper/Error";
+
+const Form = styled.form`
+  margin-bottom: 2rem;
+`;
+const RegisterWrapper = styled.div`
+  margin-top: 4rem;
+`;
+const Description = styled.p`
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+`;
+
+const RegisterButton = styled(Button)``;
+const FormSection = styled(GlobalAnination)``;
+const Title = styled(GlobalTitle)``;
+const Subtitle = styled(GlobalSubtitle)``;
+const Forgot = styled(Link)`
+  display: inline-block;
+  color: #666;
+  padding: 0.5rem 0;
+  line-height: 1;
+
+  &:after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    display: block;
+  }
+`;
 
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
 
-  const getUserFromLocalStorage = async token => {
-    const { url, options } = USER_GET(token);
-    const response = await fetch(url, options);
-    const json = await response.json();
-    console.log("json", json);
-  };
-
-  useEffect(() => {
-    const token = window.localStorage.getItem("token");
-    if (token) getUserFromLocalStorage(token);
-  }, []);
+  const { userLogin, error, loading } = useContext(UserContext);
 
   const handleSubmit = async event => {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      const { url, options } = TOKEN_POST({
-        username: username.value,
-        password: password.value,
-      });
-
-      try {
-        const request = await fetch(url, options);
-        const fetchedJSON = await request.json();
-        window.localStorage.setItem("token", fetchedJSON.token);
-        getUserFromLocalStorage(fetchedJSON.token);
-      } catch (error) {
-        console.log(error);
-      }
+      userLogin(username.value, password.value);
     }
   };
 
   return (
-    <section>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
+    <FormSection>
+      <Title>Login</Title>
+      <Form onSubmit={handleSubmit}>
         <Input label='usuário' type='text' name='username' {...username} />
         <Input label='Senha' type='password' name='password' {...password} />
-        <Button>Entrar</Button>
-      </form>
-      <Link to='cadastro'>Cadastrar</Link>
-    </section>
+        {loading ? (
+          <Button disabled>Carregando...</Button>
+        ) : (
+          <Button>Entrar</Button>
+        )}
+        <Error error={error} />
+      </Form>
+      <Forgot to='recuperar'>Esqueci minha senha</Forgot>
+      <RegisterWrapper>
+        <Subtitle>Cadastre-se</Subtitle>
+        <Description>Ainda não possui uma conta? Cadastre-se no site</Description>
+      </RegisterWrapper>
+      <RegisterButton to='cadastro' forwardedAs={Link} >
+        Cadastrar
+      </RegisterButton>
+    </FormSection>
   );
 };
 

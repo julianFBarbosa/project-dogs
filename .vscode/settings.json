@@ -2,13 +2,12 @@
   "files.exclude": {
     "node_modules": true,
     ".vscode": false,
-    ".gitignore": false,
-    "package.json": false,
+    ".gitignore": true,
+    "package.json": true,
     "package-lock.json": true,
-    ".yarn": false,
     ".pnp.js": true,
-    "yarn.lock": false,
-    "public": true
+    "public": true,
+    "LICENSE": true,
   },
   "git.ignoreLimitWarning": true
 }
