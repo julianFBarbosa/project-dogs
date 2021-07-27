@@ -11,6 +11,7 @@ import useForm from "../Hooks/useForm";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
 import Error from "../../Helper/Error";
+import media from "styled-media-query";
 
 const Form = styled.form`
   margin-bottom: 2rem;
@@ -26,8 +27,10 @@ const Description = styled.p`
 const RegisterButton = styled(Button)``;
 const FormSection = styled(GlobalAnination)``;
 const Title = styled(GlobalTitle)``;
-const Subtitle = styled(GlobalSubtitle)``;
-const Forgot = styled(Link)`
+const Subtitle = styled(GlobalSubtitle)`
+  color: #333;
+`;
+const ForgotLink = styled(Link)`
   display: inline-block;
   color: #666;
   padding: 0.5rem 0;
@@ -45,7 +48,6 @@ const Forgot = styled(Link)`
 const LoginForm = () => {
   const username = useForm();
   const password = useForm();
-
   const { userLogin, error, loading } = useContext(UserContext);
 
   const handleSubmit = async event => {
@@ -60,7 +62,7 @@ const LoginForm = () => {
     <FormSection>
       <Title>Login</Title>
       <Form onSubmit={handleSubmit}>
-        <Input label='usuário' type='text' name='username' {...username} />
+        <Input label='Usuário' type='text' name='username' {...username} />
         <Input label='Senha' type='password' name='password' {...password} />
         {loading ? (
           <Button disabled>Carregando...</Button>
@@ -69,12 +71,14 @@ const LoginForm = () => {
         )}
         <Error error={error} />
       </Form>
-      <Forgot to='recuperar'>Esqueci minha senha</Forgot>
+      <ForgotLink to='recuperar'>Esqueci minha senha</ForgotLink>
       <RegisterWrapper>
         <Subtitle>Cadastre-se</Subtitle>
-        <Description>Ainda não possui uma conta? Cadastre-se no site</Description>
+        <Description>
+          Ainda não possui uma conta? Cadastre-se no site
+        </Description>
       </RegisterWrapper>
-      <RegisterButton to='cadastro' forwardedAs={Link} >
+      <RegisterButton to='cadastro' forwardedAs={Link}>
         Cadastrar
       </RegisterButton>
     </FormSection>

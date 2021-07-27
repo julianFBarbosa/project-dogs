@@ -1,10 +1,13 @@
 import React from "react";
 
+
+import Container from "./Container.js";
+
 const Home = () => {
   return (
-    <div>
+    <Container size={'40rem'}>
       <p>Home</p>
-    </div>
+    </Container>
   );
 };
 

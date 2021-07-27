@@ -4,6 +4,7 @@ import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from "./api";
 import { useNavigate } from "react-router-dom";
 
 export const UserContext = createContext();
+export const WrapperContext = createContext();
 
 export const UserStorage = ({ children }) => {
   const [data, setData] = useState(null);
@@ -70,7 +71,14 @@ export const UserStorage = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ userLogin, userLogout, data, error, loading, login }}
+      value={{
+        userLogin,
+        userLogout,
+        data,
+        error,
+        loading,
+        login,
+      }}
     >
       {children}
     </UserContext.Provider>

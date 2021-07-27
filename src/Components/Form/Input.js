@@ -28,6 +28,7 @@ const InputLabel = styled.label`
   font-size: 1rem;
   line-height: 1;
   padding-bottom: 0.5rem;
+  color: #333;
 `;
 
 const InputError = styled.p`

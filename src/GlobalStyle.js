@@ -4,7 +4,6 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --primary-type: Helvetica, Arial, sans-serif;
     --secondary-type: 'Spectral', georgia;
-    --container-width: 50rem;
   }
 
   * {
@@ -64,6 +63,7 @@ export const GlobalTitle = styled.h1`
   font-size: 3rem;
   margin: 1rem 0;
   position: relative;
+  color: #333;
 
   &:after {
     content: "";
@@ -93,5 +93,6 @@ export const GlobalSubtitle = styled.h1`
     border-radius: 0.2rem;
   }
 `;
+
 
 export default GlobalStyle;
