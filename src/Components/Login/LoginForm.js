@@ -79,7 +79,7 @@ const LoginForm = () => {
         </Description>
       </RegisterWrapper>
       <RegisterButton to='cadastro' forwardedAs={Link}>
-        Cadastrar
+        Cadastro
       </RegisterButton>
     </FormSection>
   );

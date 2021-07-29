@@ -25,7 +25,7 @@ const Navbar = styled.nav`
 `;
 
 const HeaderLogo = styled(Link)`
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 `;
 
 const HeaderLogin = styled(Link)`

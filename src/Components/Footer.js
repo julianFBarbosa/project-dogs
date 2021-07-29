@@ -4,6 +4,7 @@ import styled from "styled-components";
 const FooterWrapper = styled.footer`
   background: #fff;
   margin-top: 2rem;
+  text-align: center;
 `;
 
 const Footer = () => {
