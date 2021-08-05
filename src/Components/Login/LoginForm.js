@@ -7,10 +7,10 @@ import {
   GlobalSubtitle,
   GlobalTitle,
 } from "../../GlobalStyle";
-import useForm from "../Hooks/useForm";
+import useForm from "../../Hooks/useForm";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
-import Error from "../../Helper/Error";
+import Error from "../Helper/Error";
 import media from "styled-media-query";
 
 const Form = styled.form`

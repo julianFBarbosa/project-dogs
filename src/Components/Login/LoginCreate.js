@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../UserContext";
 import { GlobalAnination, GlobalTitle } from "../../GlobalStyle";
-import useForm from "../Hooks/useForm";
+import useForm from "../../Hooks/useForm";
 import Button from "../Form/Button";
 import Input from "../Form/Input";
-import Error from "../../Helper/Error";
+import Error from "../Helper/Error";
 import { USER_POST } from "../../api";
-import useFetch from "../Hooks/useFetch";
+import useFetch from "../../Hooks/useFetch";
 
 const Form = styled.form`
   margin-bottom: 2rem;

@@ -5,12 +5,13 @@ import { UserStorage } from "./UserContext";
 import GlobalStyle from "./GlobalStyle";
 import Header from "./Components/Header";
 import Home from "./Components/Home.js";
-import Footer from "./Components/Footer";
-import NotFound from "./Components/NotFound";
 import Login from "./Components/Login/Login";
+import User from "./Components/User/User";
+import NotFound from "./Components/NotFound";
+import Footer from "./Components/Footer";
+import ProtectedRoute from "./Components/Helper/ProtectedRoute";
 
 const App = () => {
-
   return (
     <BrowserRouter>
       <UserStorage>
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path='/' exact element={<Home />} />
           <Route path='login/*' element={<Login />} />
+          <ProtectedRoute path='conta/*' element={<User />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
