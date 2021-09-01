@@ -107,19 +107,19 @@ const MobileButton = styled(StyledNav)`
 
   ${props =>
     props.isOpen &&
-    `
-    background: #fff;
-    box-shadow: 0 0 0 3px #fea;
-    border-color: #fb1;
-    color: #fb1;
+    css`
+      background: #fff;
+      box-shadow: 0 0 0 3px #fea;
+      border-color: #fb1;
+      color: #fb1;
 
-    &:after {
-      transform: rotate(-90deg);
-      width: 4px;
-      height: 4px;
-      box-shadow: 0 8px currentColor,0 -8px currentColor;
-    }
-  `};
+      &:after {
+        transform: rotate(-90deg);
+        width: 4px;
+        height: 4px;
+        box-shadow: 0 8px currentColor, 0 -8px currentColor;
+      }
+    `};
 `;
 
 const UserNavigation = () => {
