@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import media from "styled-media-query";
 import { UserContext } from "../../UserContext";
 import useMedia from "../../Hooks/useMedia";
@@ -21,7 +21,7 @@ const Nav = styled.nav`
     display: ${props => (props.isMobile ? "none" : "block")};
     position: absolute;
     top: 70px;
-    right: 0;
+    right: 30px;
     padding: 0 1rem;
     background: #fff;
     box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
@@ -44,23 +44,25 @@ const StyledNav = styled(NavLink)`
   transition: 0.2s;
   cursor: pointer;
 
-  &:hover,
-  &:focus {
-    background: #fff;
-    box-shadow: 0 0 0 3px #eee;
-    border-color: #333;
-    outline: none;
-  }
-
-  &.active {
-    background: #fff;
-    box-shadow: 0 0 0 3px #fea;
-    border-color: #fb1;
-
-    & svg > * {
-      fill: #fb1;
+  ${media.greaterThan("40rem")`
+    &:hover,
+    &:focus {
+      background: #fff;
+      box-shadow: 0 0 0 3px #eee;
+      border-color: #333;
+      outline: none;
     }
-  }
+
+    &.active {
+      background: #fff;
+      box-shadow: 0 0 0 3px #fea;
+      border-color: #fb1;
+
+      & svg > * {
+        fill: #fb1;
+      }
+    }
+  `}
 
   ${media.lessThan("40rem")`
     display: flex;
@@ -71,6 +73,17 @@ const StyledNav = styled(NavLink)`
     border-bottom: 1px solid #eee;
     padding: .5rem 0;
     cursor: pointer;
+
+    svg > * {
+      margin-right: .5rem;
+    }
+    
+    &:hover,
+    &:focus {
+      svg > * {
+        fill: #fb1;
+      }
+    }
   `}
 `;
 
@@ -80,6 +93,12 @@ const MobileButton = styled(StyledNav)`
   width: 40px;
   padding: 0;
   background: #eee;
+
+  ${media.lessThan("40rem")`
+    display: flex;
+    justify-content: center;
+
+  `}
 
   &:after {
     content: "";
@@ -100,11 +119,6 @@ const MobileButton = styled(StyledNav)`
     color: #fb1;
   }
 
-  ${media.lessThan("40rem")`
-    display: flex;
-    justify-content: center;
-  `}
-
   ${props =>
     props.isOpen &&
     css`
@@ -114,7 +128,7 @@ const MobileButton = styled(StyledNav)`
       color: #fb1;
 
       &:after {
-        transform: rotate(-90deg);
+        transform: rotate(90deg);
         width: 4px;
         height: 4px;
         box-shadow: 0 8px currentColor, 0 -8px currentColor;
@@ -134,7 +148,7 @@ const UserNavigation = () => {
           aria-label='Menu'
           onClick={() => setMenuState(!menuState)}
           as='button'
-          isOpen={menuState}
+          isOpen={!menuState}
         />
       )}
       <Nav isMobile={menuState}>
