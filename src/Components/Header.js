@@ -5,6 +5,7 @@ import { ReactComponent as Dog } from "../Assets/dogs.svg";
 import { UserContext } from "../UserContext";
 import User from "../Assets/usuario.svg";
 import Container from "./Container";
+import media from "styled-media-query";
 const HeaderWrapper = styled.header`
   position: fixed;
   width: 100%;
@@ -26,7 +27,11 @@ const Navbar = styled.nav`
 
 const HeaderLogo = styled(Link)`
   padding: 0.5rem;
+  ${media.lessThan('40rem')`
+    padding: 0.5rem 0;
+  `}
 `;
+
 
 const HeaderLogin = styled(Link)`
   color: #333;

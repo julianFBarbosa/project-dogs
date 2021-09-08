@@ -21,7 +21,7 @@ const Nav = styled.nav`
     display: ${props => (props.isMobile ? "none" : "block")};
     position: absolute;
     top: 70px;
-    right: 30px;
+    right: 15px;
     padding: 0 1rem;
     background: #fff;
     box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
@@ -73,8 +73,9 @@ const StyledNav = styled(NavLink)`
     border-bottom: 1px solid #eee;
     padding: .5rem 0;
     cursor: pointer;
+    height: min-content;
 
-    svg > * {
+    svg {
       margin-right: .5rem;
     }
     
