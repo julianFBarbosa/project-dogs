@@ -7,6 +7,7 @@ const Home = () => {
       <p>Home</p>
     </Container>
   );
+  
 };
 
 export default Home;

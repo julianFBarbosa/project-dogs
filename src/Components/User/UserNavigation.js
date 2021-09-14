@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 import { UserContext } from "../../UserContext";
@@ -139,8 +140,14 @@ const MobileButton = styled(StyledNav)`
 
 const UserNavigation = () => {
   const { userLogout } = useContext(UserContext);
-  const isMobile = useMedia("(max-width: 40rem)");
+  const { pathname } = useLocation();
   const [menuState, setMenuState] = useState(false);
+  const isMobile = useMedia("(max-width: 40rem)");
+  
+  useEffect(() => {
+    setMenuState(false);
+    console.log('menuState', menuState)
+  }, [pathname]);
 
   return (
     <>
@@ -149,14 +156,15 @@ const UserNavigation = () => {
           aria-label='Menu'
           onClick={() => setMenuState(!menuState)}
           as='button'
-          isOpen={!menuState}
+          isOpen={menuState}
         />
       )}
-      <Nav isMobile={menuState}>
+      <Nav isMobile={!menuState}>
         <StyledNav to='/conta' end>
           <Feed title='Minhas fotos' alt='Minhas Fotos' />
           {isMobile && "Minhas Fotos"}
         </StyledNav>
+
         <StyledNav to='/conta/estatisticas'>
           <Statistics title='Estatísticas' alt='Estatísticas' />
           {isMobile && "Estatísticas"}
