@@ -25,9 +25,9 @@ const LoginWraper = styled.section`
     background-size: cover;
   }
   ${media.lessThan("40rem")`
-    grid-template-columns: 1fr;
-    &:before {
-      background: none;
+      grid-template-columns: 1fr;
+      &:before {
+        background: none;
     }
   `}
 `;
@@ -41,20 +41,20 @@ const Forms = styled.div`
 const Login = () => {
   const { login } = useContext(UserContext);
 
-  if (!!login) return <Navigate to='/conta' />;
+  if (!!login) return <Navigate to="/conta" />;
   return (
     <LoginWraper>
       <Forms>
         <Routes>
-          <Route path='/' exact element={<LoginForm />} />
-          <Route path='cadastro' exact element={<LoginCreate />} />
-          <Route path='recuperacao' exact element={<LoginPasswordLost />} />
+          <Route path="/" exact element={<LoginForm />} />
+          <Route path="cadastro" exact element={<LoginCreate />} />
+          <Route path="recuperacao" exact element={<LoginPasswordLost />} />
           <Route
-            path='redefinir-senha'
+            path="redefinir-senha"
             exact
             element={<LoginPasswordReset />}
           />
-          <Route path='*' element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Forms>
     </LoginWraper>

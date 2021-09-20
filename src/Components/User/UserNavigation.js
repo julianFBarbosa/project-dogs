@@ -146,7 +146,6 @@ const UserNavigation = () => {
   
   useEffect(() => {
     setMenuState(false);
-    console.log('menuState', menuState)
   }, [pathname]);
 
   return (
