@@ -4,7 +4,7 @@ import Feed from './Feed/Feed';
 
 const Home = () => {
   return (
-    <Container size={"40rem"} margin="4rem auto 0">
+    <Container size={"50rem"} margin="2rem auto 0">
       <Feed />
     </Container>
   );
