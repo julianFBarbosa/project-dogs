@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import media from "styled-media-query";
+import ViewIcon from "../../Assets/visualizacao-black.svg";
 import { GlobalTitle } from "../../GlobalStyle";
 import PhotoComments from "./PhotoComments";
 
@@ -9,39 +11,108 @@ const PhotoContent = ({ data }) => {
   console.log("comments", comments);
   return (
     <Item.photo>
-      <Item.img src={photo.src} alt={photo.title} />
+      <Item.image>
+        <img src={photo.src} alt={photo.title} />
+      </Item.image>
       <Item.details>
         <Item.author>
-          <p>
-            <Link to={`perfil/${photo.author}`}>@{photo.author}</Link>
-            <Item.views>{photo.acessos}</Item.views>
-          </p>
-          <GlobalTitle>
-            <Link to={`/foto${photo.id}`}>{photo.title}</Link>
-          </GlobalTitle>
-          <Item.attributes>
-            <Item.attribute>{photo.peso} kg</Item.attribute>
-            <Item.attribute>
-              {photo.idade} {photo.idade <= 1 ? "ano" : "anos"}
-            </Item.attribute>
-          </Item.attributes>
+          <Item.link to={`perfil/${photo.author}`}>@{photo.author}</Item.link>
+          <Item.views background={ViewIcon}>{photo.acessos}</Item.views>
         </Item.author>
+        <GlobalTitle>
+          <Link to={`/foto${photo.id}`}>{photo.title}</Link>
+        </GlobalTitle>
+        <Item.attributes>
+          <Item.attribute>{photo.peso} kg</Item.attribute>
+          <Item.attribute>
+            {photo.idade} {photo.idade < 2 ? "ano" : "anos"}
+          </Item.attribute>
+        </Item.attributes>
       </Item.details>
       <PhotoComments id={photo.id} comments={comments} />
     </Item.photo>
   );
 };
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  } to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
 
 const Item = {
-  photo: styled.div``,
-  img: styled.img``,
-  details: styled.div``,
-  author: styled.div``,
-  views: styled.span``,
-  title: styled.h1``,
-  attributes: styled.ul``,
-  attribute: styled.li``,
+  photo: styled.div`
+    animation: ${fadeIn} 0.3s;
+    margin: auto;
+    height: 36rem;
+    border-radius: 0.2rem;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 36rem 20rem;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+    ${media.lessThan("64rem")`
+      height: auto;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      grid-template-columns: minmax(20rem, 40rem);
+    `}
+  `,
+  image: styled.div`
+    grid-row: 1/4;
+    ${media.lessThan("64rem")`
+      grid-row: 1;
+    `}
+  `,
+  details: styled.div`
+    padding: 2rem 2rem 0;
+  `,
+  author: styled.p`
+    opacity: 0.5;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  `,
+  views: styled.span`
+    &:before {
+      content: "";
+      width: 16px;
+      height: 10px;
+      display: inline-block;
+      margin-right: 0.5rem;
+      background-image: url(${(props) => props.background});
+    }
+  `,
+  link: styled(Link)`
+    &:hover {
+      text-decoration: underline;
+    }
+  `,
+  attributes: styled.ul`
+    display: flex;
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  `,
+  attribute: styled.li`
+    margin-right: 2rem;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      height: 20px;
+      margin: 5px 0.5rem 0 0;
+      position: relative;
+      top: 3px;
+      width: 2px;
+      background: #000;
+    }
+  `,
 };
 
 export default PhotoContent;

@@ -5,7 +5,7 @@ import FeedPhotos from "./FeedPhotos.js";
 export const ModalContext = createContext();
 
 const Feed = () => {
-  const [modalPhoto, setModalPhoto] = useState(false);
+  const [modalPhoto, setModalPhoto] = useState(null);
 
   return (
     <div>

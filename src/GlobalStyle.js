@@ -64,6 +64,7 @@ export const GlobalTitle = styled.h1`
   margin: 1rem 0;
   position: relative;
   color: #333;
+  z-index: 1;
 
   &:after {
     content: "";
