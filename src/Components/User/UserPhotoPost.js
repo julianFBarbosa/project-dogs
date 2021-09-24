@@ -41,8 +41,6 @@ const UserPhotoPost = () => {
     });
   };
 
-  console.log("img", img);
-
   return (
     <Post.section>
       <form onSubmit={handleSubmit}>
