@@ -2,29 +2,31 @@ import React, { useCallback, useContext } from "react";
 import styled from "styled-components";
 import media from "styled-media-query";
 import ViewIcon from "../../Assets/visualizacao.svg";
+import Image from "../Helper/Image";
 import { ModalContext } from "./Feed";
 
 const FeedItem = ({ photo }) => {
   const { modalPhoto, setModalPhoto } = useContext(ModalContext);
 
   const handleModalChange = useCallback(() => {
-    setModalPhoto(photo)
+    setModalPhoto(photo);
   }, [modalPhoto]);
 
   return (
-    <Item.item onClick={handleModalChange}>
-      <Item.photo src={photo.src} alt={photo.title} />
-      <Item.views background={ViewIcon}>{photo.acessos}</Item.views>
-    </Item.item>
+    <Feed.item onClick={handleModalChange}>
+      <Image src={photo.src} alt={photo.title} />
+      <Feed.views background={ViewIcon}>{photo.acessos}</Feed.views>
+    </Feed.item>
   );
 };
 
-const Item = {
+const Feed = {
   item: styled.li`
     display: grid;
     border-radius: 0.2rem;
     overflow: hidden;
     cursor: pointer;
+    grid-area: 1/1;
 
     &:nth-child(2) {
       grid-column: 2 / 4;
@@ -43,10 +45,6 @@ const Item = {
         align-items: center;
       }
     }
-  `,
-
-  photo: styled.img`
-    grid-area: 1/1;
   `,
 
   views: styled.span`

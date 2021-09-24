@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import media from "styled-media-query";
 import ViewIcon from "../../Assets/visualizacao-black.svg";
 import { GlobalTitle } from "../../GlobalStyle";
+import { UserContext } from "../../UserContext";
+import Image from "../Helper/Image";
 import PhotoComments from "./PhotoComments";
+import PhotoDelete from "./PhotoDelete";
 
 const PhotoContent = ({ data }) => {
+  const user = useContext(UserContext);
+
   const { photo, comments } = data;
-  console.log("comments", comments);
+  
   return (
     <Item.photo>
       <Item.image>
-        <img src={photo.src} alt={photo.title} />
+        <Image src={photo.src} alt={photo.title} />
       </Item.image>
       <Item.details>
         <Item.author>
-          <Item.link to={`perfil/${photo.author}`}>@{photo.author}</Item.link>
+          {user.data && user.data.username === photo.author ? (
+            <PhotoDelete id={photo.id} />
+          ) : (
+            <Item.link to={`perfil/${photo.author}`}>@{photo.author}</Item.link>
+          )}
           <Item.views background={ViewIcon}>{photo.acessos}</Item.views>
         </Item.author>
         <GlobalTitle>
