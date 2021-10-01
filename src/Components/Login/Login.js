@@ -8,9 +8,6 @@ import NotFound from "../NotFound";
 import { UserContext } from "../../UserContext";
 import * as styleLogin from "./style/Login";
 
-//TODO: refactor ALL styles, create a folder inside every compoents,
-//TODO: paste styles there and remove them from objects
-
 const Login = () => {
   const { login } = useContext(UserContext);
 
