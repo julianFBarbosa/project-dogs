@@ -6,6 +6,7 @@ import { UserContext } from "../UserContext";
 import User from "../Assets/usuario.svg";
 import Container from "./Container";
 import media from "styled-media-query";
+
 const HeaderWrapper = styled.header`
   position: fixed;
   width: 100%;
