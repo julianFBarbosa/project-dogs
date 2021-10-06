@@ -1,16 +1,16 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
-import styled from "styled-components";
 import { UserContext } from "../../UserContext";
 import PhotoCommentsForm from "./PhotoCommentsForm";
+import * as Photo from "./style/PhotoComments";
 
 const PhotoComments = ({ id, comments: paramComments }) => {
   const [comments, setComments] = useState(() => paramComments);
-  const commentsSection = useRef(null)
+  const commentsSection = useRef(null);
   const { login } = useContext(UserContext);
 
   useEffect(() => {
     commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
-  }, [comments])
+  }, [comments]);
 
   return (
     <>
@@ -26,17 +26,5 @@ const PhotoComments = ({ id, comments: paramComments }) => {
     </>
   );
 };
-
-const Photo = {
-  comments: styled.ul`
-    overflow-y: auto;
-    word-break: break-word;
-    padding: 0 2rem;
-  `,
-  comment: styled.li`
-    margin-bottom: .5rem;
-    line-height: 1.2;
-  `,
-}
 
 export default PhotoComments;
