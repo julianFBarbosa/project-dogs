@@ -14,14 +14,14 @@ export const figure = styled.figure`
   grid-area: 1/1;
 `;
 
-export const image = styled.figure`
+export const image = styled.img`
   display: block;
   max-width: 100%;
   grid-area: 1/1;
   opacity: ${({ opacity }) => (opacity ? opacity : 0)};
 `;
 
-export const skeleton = styled.figure`
+export const skeleton = styled.div`
   grid-area: 1/1;
   height: 100%;
   background-image: linear-gradient(to right, #eee 0px, #fff 50%, #eee 100%);
