@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-
 import UserNavigation from "./UserNavigation.js";
 import { GlobalTitle } from "../../GlobalStyle";
 import { useLocation } from "react-router-dom";
-
-const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0;
-`;
+import * as styledHeader from './style/UserHeader';
 
 const UserHeader = () => {
   const [title, setTitle] = useState("");
@@ -35,10 +27,10 @@ const UserHeader = () => {
   }, [location]);
 
   return (
-    <Header>
+    <styledHeader.header>
       <GlobalTitle>{title}</GlobalTitle>
       <UserNavigation />
-    </Header>
+    </styledHeader.header>
   );
 };
 

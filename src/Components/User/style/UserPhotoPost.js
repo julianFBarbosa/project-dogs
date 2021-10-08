@@ -8,7 +8,6 @@ import Button from "../Form/Button";
 import Error from "../Helper/Error";
 import Input from "../Form/Input";
 import { useNavigate } from "react-router-dom";
-import * as styledNavigation from "./style/UserNavigation";
 
 const UserPhotoPost = () => {
   const nome = useForm();
@@ -69,6 +68,33 @@ const UserPhotoPost = () => {
       )}
     </Post.section>
   );
+};
+
+const Post = {
+  section: styled.section`
+    animation: ${GlobalTransition} 0.2s ease;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  `,
+
+  input: styled.input`
+    margin-bottom: 1rem;
+  `,
+
+  preview: styled.div`
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center center;
+
+    &:after {
+      content: "";
+      display: block;
+      height: 0px;
+      padding-bottom: 100%;
+    }
+  `,
 };
 
 export default UserPhotoPost;
