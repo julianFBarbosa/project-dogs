@@ -4,9 +4,7 @@ import useFetch from "../../Hooks/useFetch";
 import Error from "../Helper/Error";
 import Loading from "../Helper/Loading.js";
 import FeedItem from "./FeedItem.js";
-import { GlobalTransition } from "../../GlobalStyle";
-import styled from "styled-components";
-import media from "styled-media-query";
+import * as styledFeedPhotos from './style/FeedPhotos';
 
 const FeedPhotos = () => {
   const { data, loading, error, request } = useFetch();
@@ -27,28 +25,13 @@ const FeedPhotos = () => {
   if (loading) return <Loading />;
   if (data)
     return (
-      <Feed.list>
+      <styledFeedPhotos.list>
         {data.map((photo) => (
           <FeedItem photo={photo} key={photo.id} />
         ))}
-      </Feed.list>
+      </styledFeedPhotos.list>
     );
   else return null;
-};
-
-const Feed = {
-  list: styled.ul`
-    animation: ${GlobalTransition} 0.3s;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-bottom: 1rem;
-    justify-items: center;
-    
-    ${media.lessThan("40rem")`
-      grid-template-columns: repeat(2, 1fr);
-    `}
-  `,
 };
 
 export default FeedPhotos;
