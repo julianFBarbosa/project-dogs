@@ -5,7 +5,6 @@ const Content = styled.section`
   max-width: ${props => props.size};
   margin: ${props => props.margin};
   padding: 0 1rem;
-  /* margin: 0 auto; */
   position: relative;
 `;
 

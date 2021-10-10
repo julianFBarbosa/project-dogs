@@ -1,17 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-
-const FooterWrapper = styled.footer`
-  background: #fff;
-  margin-top: 2rem;
-  text-align: center;
-`;
+import * as styledFooter from "./style/Footer";
 
 const Footer = () => {
   return (
-    <FooterWrapper>
+    <styledFooter.wrapper>
       <p></p>
-    </FooterWrapper>
+    </styledFooter.wrapper>
   );
 };
 
