@@ -8,6 +8,8 @@
     ".pnp.js": true,
     "public": true,
     "LICENSE": true,
+    "*.lock": true,
+    ".*": true,
   },
   "git.ignoreLimitWarning": true
 }
