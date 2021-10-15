@@ -6,7 +6,6 @@ export const item = styled.li`
   border-radius: 0.2rem;
   overflow: hidden;
   cursor: pointer;
-  grid-area: 1/1;
 
   &:nth-child(2) {
     grid-column: 2 / 4;
