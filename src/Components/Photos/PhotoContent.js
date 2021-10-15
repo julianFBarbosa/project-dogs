@@ -8,17 +8,17 @@ import PhotoComments from "./PhotoComments";
 import PhotoDelete from "./PhotoDelete";
 import * as Item from "./style/PhotoContent";
 
-const PhotoContent = ({ data }) => {
+const PhotoContent = ({ data, single }) => {
   const user = useContext(UserContext);
 
   const { photo, comments } = data;
   
   return (
-    <Item.photo>
-      <Item.image>
+    <Item.photo single={single}>
+      <Item.image single={single}>
         <Image src={photo.src} alt={photo.title} />
       </Item.image>
-      <Item.details>
+      <Item.details single={single}>
         <Item.author>
           {user.data && user.data.username === photo.author ? (
             <PhotoDelete id={photo.id} />
@@ -28,7 +28,7 @@ const PhotoContent = ({ data }) => {
           <Item.views background={ViewIcon}>{photo.acessos}</Item.views>
         </Item.author>
         <GlobalTitle>
-          <Link to={`/foto${photo.id}`}>{photo.title}</Link>
+          <Link to={`/foto/${photo.id}`}>{photo.title}</Link>
         </GlobalTitle>
         <Item.attributes>
           <Item.attribute>{photo.peso} kg</Item.attribute>

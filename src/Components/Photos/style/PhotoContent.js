@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import media from "styled-media-query";
 
 const fadeIn = keyframes`
@@ -28,6 +28,10 @@ export const photo = styled.div`
     overflow-y: auto;
     grid-template-columns: minmax(20rem, 40rem);
   `}
+  ${props => props.single && css`
+    grid-template-columns: 1fr;
+    height: auto;
+  `}
 `;
 
 export const image = styled.div`
@@ -35,10 +39,19 @@ export const image = styled.div`
   ${media.lessThan("64rem")`
     grid-row: 1;
   `}
+  ${props => props.single && css`
+    grid-row: 1;
+    border-radius: .4rem;
+    overflow: hidden;
+  `}
 `;
 
 export const details = styled.div`
   padding: 2rem 2rem 0;
+
+  ${props => props.single && css`
+    padding: 1rem 0 0;
+  `}
 `;
 export const author = styled.p`
   opacity: 0.5;
