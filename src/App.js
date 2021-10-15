@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import Home from "./Components/Home.js";
 import Login from "./Components/Login/Login";
 import User from "./Components/User/User";
+import Photo from "./Components/Photos/Photo";
 import NotFound from "./Components/NotFound";
 import Footer from "./Components/Footer";
 import ProtectedRoute from "./Components/Helper/ProtectedRoute";
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='login/*' element={<Login />} />
           <ProtectedRoute path='conta/*' element={<User />} />
           <Route path='*' element={<NotFound />} />
+          <Route path='/foto/:id' element={<Photo />} />
         </Routes>
         <Footer />
         <GlobalStyle />
