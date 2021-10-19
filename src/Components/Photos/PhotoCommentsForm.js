@@ -6,15 +6,15 @@ import Error from "../Helper/Error";
 import * as Form from "./style/PhotoCommentsForm";
 
 const PhotoCommentsForm = ({ id, setComments }) => {
-  const { request, error } = useFetch();
   const [comment, setComment] = useState("");
+  const { request, error } = useFetch();
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const { url, options } = COMMENT_POST(id, { comment });
     const { response, json } = await request(url, options);
     
-    if (response) {
+    if (response.ok) {
       setComment("");
       setComments((comments) => [...comments, json]);
     }
@@ -32,6 +32,7 @@ const PhotoCommentsForm = ({ id, setComments }) => {
       <Form.button>
         <Send />
       </Form.button>
+      {console.log('error', error)}
       <Error error={error} />
     </Form.wrapper>
   );

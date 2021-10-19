@@ -10,6 +10,7 @@ const PhotoComments = ({ id, comments: paramComments }) => {
 
   useEffect(() => {
     commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
+    console.log('comments', comments)
   }, [comments]);
 
   return (
