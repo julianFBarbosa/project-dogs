@@ -9,10 +9,10 @@ const Header = () => {
 
   return (
     <styledHeader.wrapper>
-      <Container size={"52rem"}>
+      <Container size={"50em"}>
         <styledHeader.navbar>
           <styledHeader.logo to="/" aria-label="Dogs">
-            <Dog />
+            <Dog style={{margin: '.5rem'}} />
           </styledHeader.logo>
           {data ? (
             <styledHeader.login

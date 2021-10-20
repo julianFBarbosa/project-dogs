@@ -22,12 +22,7 @@ export const navbar = styled.nav`
   height: 4rem;
 `;
 
-export const logo = styled(Link)`
-  padding: 0.5rem;
-  ${media.lessThan("40rem")`
-    padding: 0.5rem 0;
-  `}
-`;
+export const logo = styled(Link)``;
 
 export const login = styled(Link)`
   color: #333;
