@@ -50,7 +50,7 @@ export const details = styled.div`
   padding: 2rem 2rem 0;
 
   ${props => props.single && css`
-    padding: 1rem 0 0;
+    padding: 2rem 0 0;
   `}
 `;
 export const author = styled.p`
@@ -82,7 +82,7 @@ export const attributes = styled.ul`
   font-size: 1.125rem;
   font-weight: bold;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 export const attribute = styled.li`

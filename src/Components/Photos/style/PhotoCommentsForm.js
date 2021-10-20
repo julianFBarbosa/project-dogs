@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const woof = keyframes`
   from {
@@ -14,6 +14,10 @@ export const wrapper = styled.form`
   grid-template-columns: 1fr auto;
   align-items: stretch;
   margin: 1rem;
+
+  ${({single}) => single && css`
+    margin: 1rem 0;
+  `}
 `;
 
 export const textarea = styled.textarea`

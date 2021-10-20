@@ -3,19 +3,19 @@ import { UserContext } from "../../UserContext";
 import PhotoCommentsForm from "./PhotoCommentsForm";
 import * as Photo from "./style/PhotoComments";
 
-const PhotoComments = ({ id, comments: paramComments }) => {
+const PhotoComments = ({ id, comments: paramComments, single }) => {
   const [comments, setComments] = useState(() => paramComments);
   const commentsSection = useRef(null);
   const { login } = useContext(UserContext);
 
   useEffect(() => {
     commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
-    console.log('comments', comments)
+    console.log("comments", comments);
   }, [comments]);
 
   return (
     <>
-      <Photo.comments ref={commentsSection}>
+      <Photo.comments ref={commentsSection} single={single}>
         {comments.map((comment) => (
           <Photo.comment key={comment.comment_ID}>
             <b>{comment.comment_author}: </b>
@@ -23,7 +23,9 @@ const PhotoComments = ({ id, comments: paramComments }) => {
           </Photo.comment>
         ))}
       </Photo.comments>
-      {login && <PhotoCommentsForm id={id} setComments={setComments} />}
+      {login && (
+        <PhotoCommentsForm id={id} setComments={setComments} single={single} />
+      )}
     </>
   );
 };
