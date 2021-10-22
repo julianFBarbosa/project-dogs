@@ -4,11 +4,11 @@ import FeedPhotos from "./FeedPhotos.js";
 
 export const ModalContext = createContext();
 
-const Feed = () => {
+const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = useState(null);
   const [pages, setPages] = useState([1, 2]);
   const [infinite, setInfinite] = useState(true);
-
+  
   useEffect(() => {
     let wait = false;
     const infiniteScroll = () => {
@@ -40,8 +40,9 @@ const Feed = () => {
     <div>
       <ModalContext.Provider value={{ modalPhoto, setModalPhoto }}>
         {modalPhoto && <FeedModal />}
+        
         {pages.map((page) => (
-          <FeedPhotos key={page} page={page} setInfinite={setInfinite} />
+          <FeedPhotos key={page} page={page} setInfinite={setInfinite} user={user} />
         ))}
       </ModalContext.Provider>
     </div>

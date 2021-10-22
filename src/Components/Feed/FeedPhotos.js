@@ -1,20 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { PHOTOS_GET } from "../../api";
 import useFetch from "../../Hooks/useFetch";
-import { UserContext } from "../../UserContext";
 import Error from "../Helper/Error";
 import Loading from "../Helper/Loading.js";
 import FeedItem from "./FeedItem.js";
 import * as styledFeedPhotos from "./style/FeedPhotos";
 
-const FeedPhotos = ({ page, setInfinite }) => {
-  const { data: user = '' } = useContext(UserContext);
+const FeedPhotos = ({ page, setInfinite, user = "" }) => {
+  console.log("user", user);
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
     (async () => {
       const total = 6;
-      const { url, options } = PHOTOS_GET({page, total, user});
+      const { url, options } = PHOTOS_GET({ page, total, user });
+      console.log('url', url)
+      console.log('options', options)
       const { response, json } = await request(url, options);
       if (response && response.ok && json.length < total) {
         setInfinite(false);

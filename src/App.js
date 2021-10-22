@@ -11,6 +11,7 @@ import Photo from "./Components/Photos/Photo";
 import NotFound from "./Components/NotFound";
 import Footer from "./Components/Footer";
 import ProtectedRoute from "./Components/Helper/ProtectedRoute";
+import UserProfile from "./Components/User/UserProfile";
 
 const App = () => {
   return (
@@ -19,10 +20,11 @@ const App = () => {
         <Header />
         <Routes>
           <Route path='/' exact element={<Home />} />
-          <Route path='login/*' element={<Login />} />
+          <Route path='/login/*' element={<Login />} />
           <ProtectedRoute path='conta/*' element={<User />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/foto/:id' element={<Photo />} />
+          <Route path='/perfil/:user' element={<UserProfile />} />
         </Routes>
         <Footer />
         <GlobalStyle />
