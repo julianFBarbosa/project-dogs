@@ -21,10 +21,10 @@ const App = () => {
         <Routes>
           <Route path='/' exact element={<Home />} />
           <Route path='/login/*' element={<Login />} />
-          <ProtectedRoute path='conta/*' element={<User />} />
-          <Route path='*' element={<NotFound />} />
           <Route path='/foto/:id' element={<Photo />} />
           <Route path='/perfil/:user' element={<UserProfile />} />
+          <ProtectedRoute path='conta/*' element={<User />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
         <Footer />
         <GlobalStyle />
