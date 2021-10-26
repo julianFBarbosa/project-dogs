@@ -7,15 +7,12 @@ import FeedItem from "./FeedItem.js";
 import * as styledFeedPhotos from "./style/FeedPhotos";
 
 const FeedPhotos = ({ page, setInfinite, user = "" }) => {
-  console.log("user", user);
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
     (async () => {
       const total = 6;
       const { url, options } = PHOTOS_GET({ page, total, user });
-      console.log('url', url)
-      console.log('options', options)
       const { response, json } = await request(url, options);
       if (response && response.ok && json.length < total) {
         setInfinite(false);

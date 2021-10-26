@@ -32,7 +32,6 @@ const PhotoCommentsForm = ({ id, setComments, single }) => {
       <Form.button>
         <Send />
       </Form.button>
-      {console.log('error', error)}
       <Error error={error} />
     </Form.wrapper>
   );
