@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import FeedModal from "./FeedModal.js";
 import FeedPhotos from "./FeedPhotos.js";
+import PropTypes from "prop-types";
 
 export const ModalContext = createContext();
 
@@ -8,7 +9,7 @@ const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = useState(null);
   const [pages, setPages] = useState([1, 2]);
   const [infinite, setInfinite] = useState(true);
-  
+
   useEffect(() => {
     let wait = false;
     const infiniteScroll = () => {
@@ -40,13 +41,29 @@ const Feed = ({ user }) => {
     <div>
       <ModalContext.Provider value={{ modalPhoto, setModalPhoto }}>
         {modalPhoto && <FeedModal />}
-        
+
         {pages.map((page) => (
-          <FeedPhotos key={page} page={page} setInfinite={setInfinite} user={user} />
+          <FeedPhotos
+            key={page}
+            page={page}
+            setInfinite={setInfinite}
+            user={user}
+          />
         ))}
       </ModalContext.Provider>
     </div>
   );
+};
+
+Feed.defaultProps = {
+  user: 0,
+};
+
+Feed.propTypes = {
+  user: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired,
+  ]),
 };
 
 export default Feed;
