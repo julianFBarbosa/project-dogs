@@ -38,7 +38,7 @@ const LoginPasswordLost = () => {
   };
   return (
     <styleLoginPasswordReset.wrapper>
-      <GlobalTitle>Mot de passe oublié</GlobalTitle>
+      <GlobalTitle>Resete a senha</GlobalTitle>
       <form onSubmit={handleSubmit}>
         <Input
           label="Nova senha"
