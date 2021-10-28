@@ -10,11 +10,11 @@ import { GlobalTitle } from "../../GlobalStyle";
 const LoginPasswordLost = () => {
   const [login, setLogin] = useState("");
   const [key, setKey] = useState("");
+  const { error, loading, request } = useFetch();
   const password = useForm();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const { error, loading, request } = useFetch();
     const key = params.get("key");
     const login = params.get("login");
 
@@ -28,6 +28,7 @@ const LoginPasswordLost = () => {
   }, []);
 
   const handleSubmit = async (event) => {
+    event.preventDefault();
     const { url, options } = PASSWORD_RESET({
       login,
       key,
