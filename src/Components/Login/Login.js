@@ -16,14 +16,10 @@ const Login = () => {
     <styleLogin.LoginWraper>
       <styleLogin.Forms>
         <Routes>
-          <Route path="/" exact element={<LoginForm />} />
-          <Route path="cadastro" exact element={<LoginCreate />} />
-          <Route path="recuperacao" exact element={<LoginPasswordLost />} />
-          <Route
-            path="redefinir-senha"
-            exact
-            element={<LoginPasswordReset />}
-          />
+          <Route path="/" element={<LoginForm />} />
+          <Route path="cadastro" element={<LoginCreate />} />
+          <Route path="perdeu" element={<LoginPasswordLost />} />
+          <Route path="recuperar" element={<LoginPasswordReset />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </styleLogin.Forms>

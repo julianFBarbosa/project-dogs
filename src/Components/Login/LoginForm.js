@@ -33,7 +33,7 @@ const LoginForm = () => {
         )}
         <Error error={error} />
       </styleLoginForm.Form>
-      <styleLoginForm.ForgotLink to='recuperar'>Esqueci minha senha</styleLoginForm.ForgotLink>
+      <styleLoginForm.ForgotLink to='perdeu'>Esqueci minha senha</styleLoginForm.ForgotLink>
       <styleLoginForm.RegisterWrapper>
         <styleLoginForm.Subtitle>Cadastre-se</styleLoginForm.Subtitle>
         <styleLoginForm.Description>

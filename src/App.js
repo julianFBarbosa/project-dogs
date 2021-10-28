@@ -19,7 +19,7 @@ const App = () => {
       <UserStorage>
         <Header />
         <Routes>
-          <Route path='/' exact element={<Home />} />
+          <Route path='/' element={<Home />} />
           <Route path='/login/*' element={<Login />} />
           <Route path='/foto/:id' element={<Photo />} />
           <Route path='/perfil/:user' element={<UserProfile />} />

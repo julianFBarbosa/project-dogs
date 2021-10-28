@@ -1,4 +1,5 @@
 export const API_URL = "https://dogsapi.origamid.dev/json";
+export const URL = 'http://localhost:3000';
 
 export const TOKEN_POST = (body) => {
   return {
@@ -105,6 +106,32 @@ export const PHOTO_DELETE = (id) => {
       headers: {
         Authorization: `Bearer ${window.localStorage.getItem("token")}`,
       },
+    },
+  };
+};
+
+export const PASSWORD_LOST = (body) => {
+  return {
+    url: `${API_URL}/api/password/lost`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+};
+
+export const PASSWORD_RESET = (body) => {
+  return {
+    url: `${API_URL}/api/password/reset`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
     },
   };
 };

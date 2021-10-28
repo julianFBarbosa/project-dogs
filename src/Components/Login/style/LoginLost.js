@@ -7,4 +7,4 @@ import {
 } from "../../../GlobalStyle";
 import Button from "../../Form/Button";
 
-export const wrapper = styled.div``;
+export const wrapper = styled.section``;
