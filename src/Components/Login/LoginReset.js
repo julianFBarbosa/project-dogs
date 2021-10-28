@@ -33,7 +33,6 @@ const LoginPasswordLost = () => {
       key,
       password: password.value,
     });
-    request();
     request(url, options);
   };
   return (
