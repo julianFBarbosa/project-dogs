@@ -6,12 +6,15 @@ import useFetch from "../../Hooks/useFetch";
 import { PASSWORD_RESET } from "../../api";
 import * as styleLoginPasswordReset from "./style/LoginLost";
 import { GlobalTitle } from "../../GlobalStyle";
+import Error from "../Helper/Error";
+import { useNavigate } from "react-router";
 
 const LoginPasswordLost = () => {
   const [login, setLogin] = useState("");
   const [key, setKey] = useState("");
   const { error, loading, request } = useFetch();
   const password = useForm();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -29,12 +32,18 @@ const LoginPasswordLost = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { url, options } = PASSWORD_RESET({
-      login,
-      key,
-      password: password.value,
-    });
-    request(url, options);
+
+    if (password.validate()) {
+      const { url, options } = PASSWORD_RESET({
+        login,
+        key,
+        password: password.value,
+      });
+      const { response } = await request(url, options);
+      if (response.ok) {
+        navigate("/login");
+      }
+    }
   };
   return (
     <styleLoginPasswordReset.wrapper>
@@ -46,8 +55,14 @@ const LoginPasswordLost = () => {
           name="password"
           {...password}
         />
-        <Button>Resetar</Button>
+        {loading ? (
+          <Button disabled>Resetando...</Button>
+        ) : (
+          <Button>Resetar</Button>
+        )}
       </form>
+
+      <Error error={error} />
     </styleLoginPasswordReset.wrapper>
   );
 };
