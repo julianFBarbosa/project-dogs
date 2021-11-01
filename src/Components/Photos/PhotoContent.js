@@ -10,7 +10,6 @@ import * as Item from "./style/PhotoContent";
 
 const PhotoContent = ({ data, single }) => {
   const user = useContext(UserContext);
-
   const { photo, comments } = data;
   
   return (
@@ -23,7 +22,7 @@ const PhotoContent = ({ data, single }) => {
           {user.data && user.data.username === photo.author ? (
             <PhotoDelete id={photo.id} />
           ) : (
-            <Item.link to={`perfil/${photo.author}`}>@{photo.author}</Item.link>
+            <Item.link to={`/perfil/${photo.author}`}>@{photo.author}</Item.link>
           )}
           <Item.views background={ViewIcon}>{photo.acessos}</Item.views>
         </Item.author>

@@ -7,6 +7,7 @@ import useFetch from "../../Hooks/useFetch";
 import { URL, PASSWORD_LOST } from "../../api";
 import { GlobalTitle } from "../../GlobalStyle";
 import Error from "../../Components/Helper/Error";
+import Head from "../Helper/Head";
 
 const LoginPasswordLost = () => {
   const login = useForm();
@@ -26,6 +27,7 @@ const LoginPasswordLost = () => {
 
   return (
     <styleLoginPasswordLost.wrapper>
+      <Head title="Perdeu a senha"/>
       <GlobalTitle>Perdeu a senha?</GlobalTitle>
       {data ? (
         <p style={{ color: "#4c1" }}>{data}</p>

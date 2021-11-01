@@ -8,6 +8,7 @@ import * as styleLoginPasswordReset from "./style/LoginLost";
 import { GlobalTitle } from "../../GlobalStyle";
 import Error from "../Helper/Error";
 import { useNavigate } from "react-router";
+import Head from "../Helper/Head";
 
 const LoginPasswordLost = () => {
   const [login, setLogin] = useState("");
@@ -47,6 +48,7 @@ const LoginPasswordLost = () => {
   };
   return (
     <styleLoginPasswordReset.wrapper>
+      <Head title="Resete a senha" />
       <GlobalTitle>Resete a senha</GlobalTitle>
       <form onSubmit={handleSubmit}>
         <Input

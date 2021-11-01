@@ -7,6 +7,7 @@ import Error from "../Helper/Error";
 import { USER_POST } from "../../api";
 import useFetch from "../../Hooks/useFetch";
 import * as styleLoginCreate from "./style/LoginCreate";
+import Head from "../Helper/Head";
 
 const LoginCreate = () => {
   const username = useForm();
@@ -32,6 +33,7 @@ const LoginCreate = () => {
 
   return (
     <styleLoginCreate.FormSection>
+      <Head title="Crie sua conta"/>
       <styleLoginCreate.Title>Cadastre-se</styleLoginCreate.Title>
       <styleLoginCreate.Form onSubmit={handleSubmit}>
         <Input label="Usuário" type="text" name="username" {...username} />

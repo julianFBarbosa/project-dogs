@@ -4,6 +4,7 @@ import { PHOTO_GET } from "../../api";
 import useFetch from "../../Hooks/useFetch";
 import Container from "../Container";
 import Error from "../Helper/Error";
+import Head from "../Helper/Head";
 import Loading from "../Helper/Loading";
 import PhotoContent from "./PhotoContent";
 import * as styledPhoto from "./style/Photo";
@@ -22,6 +23,7 @@ const Photo = () => {
   if (data)
     return (
       <Container margin="2rem auto 0">
+        <Head title={data.photo.title} />
         <PhotoContent single={true} data={data} />
       </Container>
     );

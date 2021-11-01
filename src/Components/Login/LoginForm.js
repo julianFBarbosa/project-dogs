@@ -5,6 +5,7 @@ import useForm from "../../Hooks/useForm";
 import Error from "../Helper/Error";
 import Input from "../Form/Input";
 import * as styleLoginForm from './style/LoginForm';
+import Head from "../Helper/Head";
 
 const LoginForm = () => {
   const username = useForm();
@@ -22,6 +23,7 @@ const LoginForm = () => {
 
   return (
     <styleLoginForm.FormSection>
+      <Head title="Login" />
       <styleLoginForm.Title>Login</styleLoginForm.Title>
       <styleLoginForm.Form onSubmit={handleSubmit}>
         <Input label='Usuário' type='text' name='username' {...username} />
