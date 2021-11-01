@@ -11,7 +11,7 @@ export const Form = styled.form`
   margin-bottom: 2rem;
 `;
 export const RegisterWrapper = styled.div`
-  margin-top: 4rem;
+  margin: 4rem 0;
 `;
 export const Description = styled.p`
   margin-top: 2rem;
