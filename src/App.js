@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UserStorage } from "./UserContext";
-
 import GlobalStyle from "./GlobalStyle";
 import Header from "./Components/Header";
 import Home from "./Components/Home.js";
@@ -12,24 +11,29 @@ import NotFound from "./Components/NotFound";
 import Footer from "./Components/Footer";
 import ProtectedRoute from "./Components/Helper/ProtectedRoute";
 import UserProfile from "./Components/User/UserProfile";
+import "./App.scss";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <UserStorage>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login/*' element={<Login />} />
-          <Route path='/foto/:id' element={<Photo />} />
-          <Route path='/perfil/:user' element={<UserProfile />} />
-          <ProtectedRoute path='conta/*' element={<User />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-        <Footer />
-        <GlobalStyle />
-      </UserStorage>
-    </BrowserRouter>
+    <div className="app">
+      <BrowserRouter>
+        <UserStorage>
+          <Header />
+          <main className="app-body">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login/*" element={<Login />} />
+              <Route path="/foto/:id" element={<Photo />} />
+              <Route path="/perfil/:user" element={<UserProfile />} />
+              <ProtectedRoute path="conta/*" element={<User />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+          <GlobalStyle />
+        </UserStorage>
+      </BrowserRouter>
+    </div>
   );
 };
 

@@ -80,7 +80,7 @@ export const GlobalTitle = styled.h1`
   }
 `;
 
-export const GlobalSubtitle = styled.h2`
+export const GlobalSubtitle = styled.h1`
   font-family: var(--secondary-type);
   line-height: 1;
   font-size: 2rem;

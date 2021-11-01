@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <styledFooter.wrapper>
       <Dogs />
-      <styledFooter.paragraph>Dogs. Alguns direitos reservados</styledFooter.paragraph>
+      <styledFooter.paragraph>Dogs. Alguns direitos reservados.</styledFooter.paragraph>
     </styledFooter.wrapper>
   );
 };
