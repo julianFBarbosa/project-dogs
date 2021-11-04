@@ -6,7 +6,8 @@ import Loading from "../Helper/Loading.js";
 import FeedItem from "./FeedItem.js";
 import * as styledFeedPhotos from "./style/FeedPhotos";
 
-const FeedPhotos = ({ page, setInfinite, user = "" }) => {
+const FeedPhotos = ({ page, setInfinite, user }) => {
+  console.log('user', user)
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {

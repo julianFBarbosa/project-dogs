@@ -14,18 +14,18 @@ const Feed = ({ user, title }) => {
   useEffect(() => {
     let wait = false;
     const infiniteScroll = () => {
-      if (!infinite) return;
+      if (infinite) {
+        const scroll = window.scrollY;
+        const height = document.body.offsetHeight - window.innerHeight;
 
-      const scroll = window.scrollY;
-      const height = document.body.offsetHeight - window.innerHeight;
+        if (scroll > height * 0.75 && !wait) {
+          setPages((pages) => [...pages, pages.length + 1]);
+          wait = true;
 
-      if (scroll > height * 0.75 && !wait) {
-        setPages((pages) => [...pages, pages.length + 1]);
-        wait = true;
-
-        setTimeout(() => {
-          wait = false;
-        }, 500);
+          setTimeout(() => {
+            wait = false;
+          }, 500);
+        }
       }
     };
 
