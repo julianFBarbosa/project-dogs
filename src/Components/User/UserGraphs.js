@@ -4,9 +4,11 @@ import * as Graph from "./style/UserGraph";
 const UserGraphs = ({ data }) => {
   const [graph, setGraph] = useState([]);
   const [total, setTotal] = useState(0);
-  
+
   useEffect(() => {
-    setTotal(data.map(({ acessos }) => acessos));
+    const totalViews = data.map(({acessos}) => +acessos).reduce((a, b) => a + b, 0);
+    setTotal(totalViews);
+    console.log('totalViews', totalViews)
   }, [data]);
 
   return (

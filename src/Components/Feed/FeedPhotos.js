@@ -7,7 +7,6 @@ import FeedItem from "./FeedItem.js";
 import * as styledFeedPhotos from "./style/FeedPhotos";
 
 const FeedPhotos = ({ page, setInfinite, user }) => {
-  console.log('user', user)
   const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
@@ -19,7 +18,7 @@ const FeedPhotos = ({ page, setInfinite, user }) => {
         setInfinite(false);
       }
     })();
-  }, [request, page, setInfinite]);
+  }, [request, user, page, setInfinite]);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;

@@ -15,7 +15,7 @@ const User = () => {
     <Container size={"50rem"}>
       <UserHeader />
       <Routes>
-        <Route path="/" element={<Feed title="Minha conta" user={data.id} />} />
+        <Route path="/" element={<Feed title="Minha conta" user={data?.id} />} />
         <Route path="postar" element={<UserPhotoPost />} />
         <Route path="estatisticas" element={<UserStats />} />
         <Route path="*" element={<NotFound />} />
