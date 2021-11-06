@@ -4,7 +4,10 @@ import {
   GlobalAnination,
   GlobalSubtitle,
   GlobalTitle,
+  GlobalTransition,
 } from "../../../GlobalStyle";
 import Button from "../../Form/Button";
 
-export const wrapper = styled.section``;
+export const wrapper = styled.section`
+  animation: 0.3s ${GlobalTransition} ease;
+`;

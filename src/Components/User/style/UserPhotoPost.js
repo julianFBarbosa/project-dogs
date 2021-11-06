@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 import { GlobalTransition } from "../../../GlobalStyle";
 
 export const section = styled.section`
@@ -7,6 +8,9 @@ export const section = styled.section`
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 2rem;
+  ${media.lessThan('40rem')`
+    grid-template-columns: 1fr;
+  `}
 `;
 
 export const input = styled.input`

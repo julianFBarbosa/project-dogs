@@ -6,7 +6,7 @@
     "package.json": true,
     "package-lock.json": true,
     ".pnp.js": true,
-    "public": true,
+    "public": false,
     "LICENSE": true,
     "*.lock": true,
     ".*": true,

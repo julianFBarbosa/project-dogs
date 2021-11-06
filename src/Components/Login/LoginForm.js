@@ -34,7 +34,7 @@ const LoginForm = () => {
         ) : (
           <styleLoginForm.RegisterButton>Entrar</styleLoginForm.RegisterButton>
         )}
-        <Error error={error} />
+        <Error error={error && 'Dados incorretos.'} />
       </styleLoginForm.Form>
       <styleLoginForm.ForgotLink to="perdeu">
         Esqueci minha senha
