@@ -7,4 +7,4 @@ In this project i'm learnig how to:
 - Integrates the frontend with REST API endpoints
 - Deploy frontend Applications in cloud services
 
-this application will be avaliable to be used soon :D
+you can view this webiste accessing this link: [Dogs - Uma rede social para cachorros](https://dogs.julianbarbosa.dev/)
