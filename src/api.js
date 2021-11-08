@@ -1,5 +1,5 @@
 export const API_URL = "https://dogsapi.origamid.dev/json";
-export const URL = 'http://localhost:3000';
+export const URL = 'https://dogs.julianbarbosa.dev/';
 
 export const TOKEN_POST = (body) => {
   return {
