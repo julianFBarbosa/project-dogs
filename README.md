@@ -26,6 +26,7 @@ yarn
 ```
 
 It will also work in your favorite dependency manager
+
 ## Usage
 
 To run this project locally in your machine, you can simply run
@@ -42,11 +43,12 @@ yarn dev
 
 then the project will be available at [http://localhost:3000](#)
 
-
 ## Contributing
 
-Feel free to contribute for this project sending a [PR](https://github.com/julianFBarbosa/project-dogs/pulls) :)
+Feel free to contribute to this project sending a [PR](https://github.com/julianFBarbosa/project-dogs/pulls) :)
 
 ## Production
 
-This project is in production and you can access it [here](https://dogs.julianbarbosa.dev/)
+This project is actually in production and you can access it [here](https://dogs.julianbarbosa.dev/)
+
+with :heart:, [Julian](https://github.com/julianFBarbosa/)
