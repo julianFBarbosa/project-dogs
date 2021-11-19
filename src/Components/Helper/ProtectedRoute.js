@@ -7,10 +7,8 @@ const ProtectedRoute = (props) => {
 
   if (login) {
     return <Route {...props} />;
-  } else if (!login) {
-    return <Navigate to='/login' />;
   } else {
-    return null;
+    return <Navigate to="/login" />;
   }
 };
 

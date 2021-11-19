@@ -22,10 +22,12 @@ const App = () => {
           <main className="app-body">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/login/*" element={<Login />} />
-              <Route path="/foto/:id" element={<Photo />} />
-              <Route path="/perfil/:user" element={<UserProfile />} />
-              <ProtectedRoute path="conta/*" element={<User />} />
+              <Route exact path="/login/*" element={<Login />} />
+              <Route exact path="/foto/:id" element={<Photo />} />
+              <Route exact path="/perfil/:user" element={<UserProfile />} />
+              <Route exact path="conta/*" element={<ProtectedRoute />}>
+                <Route path="conta/*" element={<User />} />
+              </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

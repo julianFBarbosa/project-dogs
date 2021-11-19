@@ -1,10 +1,52 @@
 # Project Dogs
 
-In this project i'm learnig how to:
-- Develop applications using React
-- Style my functional components with the [styled-components](https://styled-components.com/) package
-- Deal with [routes](https://reactrouter.com/) and authentication using JWT Token
-- Integrates the frontend with REST API endpoints
-- Deploy frontend Applications in cloud services
+A Social Media focused on... guess what... DOGS!
 
-you can view this webiste accessing this link: [Dogs - Uma rede social para cachorros](https://dogs.julianbarbosa.dev/)
+## Summary
+
+- [Dependencies Installation](#dependencies-Installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Production](#Production)
+
+## Dependencies Installation
+
+To install project's dependencies you can use you favorite dependency manager
+
+If you prefer to install them via npm
+
+```sh
+npm install
+```
+
+If you prefer to install them via yarn
+
+```sh
+yarn
+```
+
+It will also work in your favorite dependency manager
+## Usage
+
+To run this project locally in your machine, you can simply run
+
+```sh
+npm run dev
+```
+
+or if you prefer
+
+```sh
+yarn dev
+```
+
+then the project will be available at [http://localhost:3000](#)
+
+
+## Contributing
+
+Feel free to contribute for this project sending a [PR](https://github.com/julianFBarbosa/project-dogs/pulls) :)
+
+## Production
+
+This project is in production and you can access it [here](https://dogs.julianbarbosa.dev/)
