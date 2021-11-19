@@ -32,13 +32,13 @@ It will also work in your favorite dependency manager
 To run this project locally in your machine, you can simply run
 
 ```sh
-npm run dev
+npm run start
 ```
 
 or if you prefer
 
 ```sh
-yarn dev
+yarn start
 ```
 
 then the project will be available at [http://localhost:3000](#)
