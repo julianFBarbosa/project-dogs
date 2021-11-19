@@ -19,13 +19,11 @@ If you prefer to install them via npm
 npm install
 ```
 
-If you prefer to install them via yarn
+Or if you prefer to install them via yarn
 
 ```sh
 yarn
 ```
-
-It will also work in your favorite dependency manager
 
 ## Usage
 
