@@ -25,9 +25,7 @@ const App = () => {
               <Route exact path="/login/*" element={<Login />} />
               <Route exact path="/foto/:id" element={<Photo />} />
               <Route exact path="/perfil/:user" element={<UserProfile />} />
-              <Route exact path="conta/*" element={<ProtectedRoute />}>
-                <Route path="conta/*" element={<User />} />
-              </Route>
+              <ProtectedRoute exact path="conta/*" element={<User />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

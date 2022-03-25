@@ -13,6 +13,7 @@ const Feed = ({ user, title }) => {
 
   useEffect(() => {
     let wait = false;
+    console.log('wait', wait)
     const infiniteScroll = () => {
       if (infinite) {
         const scroll = window.scrollY;
